@@ -20,7 +20,7 @@ def split_line_to_points(input_gdf):
     # convert the linestring to a list of points
     input_gdf["geometry"] = input_gdf["geometry"].apply(lambda x: [Point(f) for f in x.coords])
     # set index with columns_index variable (without geometry)
-    input_gdf.set_index(columns_index , inplace=True)
+    input_gdf.set_index(columns_index, inplace=True)
     output = input_gdf["geometry"].explode().reset_index()
     #TODO convert to geodataframe
     return output
